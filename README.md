@@ -11,6 +11,7 @@ Set path to the folder where all the files are stored.
 Then,for Windows write
 
 >>set FLASK_APP= run.py
+
 >>flask run
 
 then open web browser and load the following address
