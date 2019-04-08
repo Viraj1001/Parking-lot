@@ -1,0 +1,134 @@
+<html>
+
+<!--Parking lot map-->
+	{%block content%}
+
+<body>
+	<H1 align="center">Parking Lot</H1>
+	<h4>Booked(Red) : {{bcount}}</h4>
+	<h4>Handicap(Blue) : {{hcount}}</h4>
+	<h4>Faculty(Yellow)* : {{facount}}</h4>
+	<table cellpadding="5" cellspacing="12" align="center">
+
+	
+	<tr>
+		{% for i in range(10) %}
+	    {% if colours[i] == 0 %}
+	    <td bgcolor="green">{{ data[i] }} </td>
+
+	    {%elif colours[i] == 1 %}
+	    <td bgcolor="red">{{ data[i] }}</td>
+
+		{%elif colours[i] == 2 %}
+	    <td bgcolor="yellow">{{ data[i] }}</td>
+
+	    {%elif colours[i] == 3 %}
+	    <td bgcolor="blue">{{ data[i] }}</td>
+
+
+		{%endif%}
+		{%endfor%}
+	</tr>
+	<tr>
+		{% for i in range(10,20) %}
+	    {% if colours[i] == 0 %}
+	    <td bgcolor="green">{{ data[i] }} </td>
+
+	    {%elif colours[i] == 1 %}
+	    <td bgcolor="red">{{ data[i] }}</td>
+
+		{%elif colours[i] == 2 %}
+	    <td bgcolor="yellow">{{ data[i] }}</td>
+
+	    {%elif colours[i] == 3 %}
+	    <td bgcolor="blue">{{ data[i] }}</td>
+
+
+		{%endif%}
+		{%endfor%}
+	</tr>
+	<tr>
+		{% for i in range(20,30) %}
+	    {% if colours[i] == 0 %}
+	    <td bgcolor="green">{{ data[i] }} </td>
+
+	    {%elif colours[i] == 1 %}
+	    <td bgcolor="red">{{ data[i] }}</td>
+
+		{%elif colours[i] == 2 %}
+	    <td bgcolor="yellow">{{ data[i] }}</td>
+
+	    {%elif colours[i] == 3 %}
+	    <td bgcolor="blue">{{ data[i] }}</td>
+
+
+		{%endif%}
+		{%endfor%}
+	</tr>
+	<tr>
+		{% for i in range(30,40) %}
+	    {% if colours[i] == 0 %}
+	    <td bgcolor="green">{{ data[i] }} </td>
+
+	    {%elif colours[i] == 1 %}
+	    <td bgcolor="red">{{ data[i] }}</td>
+
+		{%elif colours[i] == 2 %}
+	    <td bgcolor="yellow">{{ data[i] }}</td>
+
+	    {%elif colours[i] == 3 %}
+	    <td bgcolor="blue">{{ data[i] }}</td>
+
+
+		{%endif%}
+		{%endfor%}
+	</tr>
+	<tr>
+		{% for i in range(40,50) %}
+	    {% if colours[i] == 0 %}
+	    <td bgcolor="green">{{ data[i] }} </td>
+
+	    {%elif colours[i] == 1 %}
+	    <td bgcolor="red">{{ data[i] }}</td>
+
+		{%elif colours[i] == 2 %}
+	    <td bgcolor="yellow">{{ data[i] }}</td>
+
+	    {%elif colours[i] == 3 %}
+	    <td bgcolor="blue">{{ data[i] }}</td>
+
+
+		{%endif%}
+		{%endfor%}
+	</tr>
+	
+	
+	</table>
+	<br>
+	
+	   <h4 align='center' >Open(Green) {{frcount}}: </h4>
+	<form name="pbook" method="" align="center" action="{{url_for('home')}}">
+
+	<select name="booking"  required >	
+	{%for i in range(size)%}
+	{%if colours[i] == 0%}
+	    <option value="{{data[i]}}">    {{data[i]}}      </option>
+	{%endif%}
+	{%endfor%}
+	</select>
+
+	<script type="text/javascript">
+		function AlertMessage(){
+		alert("Reload the page to view the updated map. ")
+	}
+	</script>
+
+	<button type="submit" onclick="AlertMessage()"> Reserve the lot</button>
+    
+    <p>* Faculty spots cannot be booked by students </p>
+    
+</form>
+
+</body>
+	{%endblock%}
+</html>
